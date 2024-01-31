@@ -1,0 +1,16 @@
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+enableServer: false
+containerRuntimeEndpoint: unix:///run/cri-dockerd.sock
+#cgroupDriver: systemd
+staticPodPath: /home/ec2-user/kubernetes/kubelet-1-24/pods
+readOnlyPort: 10250
+failSwapOn: false
+podCIDR: 10.241.1.0/24
+authentication:
+  anonymous:
+    enabled: true
+  webhook:
+    enabled: false
+authorization:
+  mode: AlwaysAllow
